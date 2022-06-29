@@ -13,7 +13,22 @@ const getById = async (id) => {
   return product;
 };
 
+const create = async (name) => {
+  try {
+  const query = 'INSERT INTO products (name) VALUES (?)';
+  const [rows] = await connection.execute(query, [name]);
+  const result = {
+    id: rows.insertId,
+    name,
+    };
+  return result;
+  } catch (e) {
+    console.error(e);
+  }
+};
+
 module.exports = {
   getAll,
   getById,
+  create,
 };

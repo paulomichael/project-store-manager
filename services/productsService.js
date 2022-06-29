@@ -1,10 +1,13 @@
-const productsModels = require('../models/productsModel');
+const productsModel = require('../models/productsModel');
 
-const getAll = () => productsModels.getAll();
+const getAll = () => productsModel.getAll();
 
-const getById = async (id) => productsModels.getById(id);
+const getById = async (id) => productsModel.getById(id);
+
+const create = async (name, quantity) => productsModel.create(name);
 
 module.exports = {
   getAll,
   getById,
+  create,
 };
