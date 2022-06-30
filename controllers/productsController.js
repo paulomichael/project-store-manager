@@ -1,4 +1,4 @@
-const products = require('express').Router();
+// const products = require('express').Router();
 
 const productsService = require('../services/productsService');
 
