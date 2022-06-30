@@ -9,4 +9,3 @@ const checkProductId = async (req, res, next) => {
     next();
 };
 module.exports = checkProductId;
-
