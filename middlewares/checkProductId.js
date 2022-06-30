@@ -1,4 +1,4 @@
-const { getById } = require('../services/productsService');
+// const { getById } = require('../services/productsService');
 
 const checkProductId = async (req, res, next) => {
     const { id } = req.params;

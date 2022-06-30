@@ -4,7 +4,7 @@ const productsController = require('./controllers/productsController');
 const salesController = require('./controllers/salesController');
 const checkProductName = require('./middlewares/checkProductName');
 const checkProductId = require('./middlewares/checkProductId');
-const checkProductQuantity = require('./middlewares/checkProductQuantity');
+// const checkProductQuantity = require('./middlewares/checkProductQuantity');
 
 const app = express();
 app.use(bodyParser.json());
