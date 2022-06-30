@@ -4,7 +4,7 @@ const getAll = () => productsModel.getAll();
 
 const getById = async (id) => productsModel.getById(id);
 
-const create = async (name, quantity) => productsModel.create(name);
+const create = async (name) => productsModel.create(name);
 
 module.exports = {
   getAll,

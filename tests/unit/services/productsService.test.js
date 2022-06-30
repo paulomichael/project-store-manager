@@ -9,14 +9,14 @@ describe('Retorna os produtos', () => {
   describe('quando nao ha produtos', () => {
     const productsArray = [[]];
     before(() => {
-      sinon.stub(productsModels, 'getAll')
+      sinon.stub(productsModel, 'getAll')
         .resolves(productsArray);
     });
     after(() => {
-      productsModels.getAll.restore();
+      productsModel.getAll.restore();
     });
     it('retorna um array vazio', async () => {
-      const response = await productsServices.getAll();
+      const response = await productsService.getAll();
       expect(response).to.be.an('array');
       expect(response[0]).to.be.empty;
     });
@@ -39,16 +39,16 @@ describe('Retorna os produtos', () => {
     ]]
 
     before(() => {
-      sinon.stub(productsModels, 'getAll')
+      sinon.stub(productsModel, 'getAll')
         .resolves(productsArray);
     });
 
     after(() => {
-      productsModels.getAll.restore();
+      productsModel.getAll.restore();
     });
 
     it('retorna produtos', async () => {
-      const [response] = await productsServices.getAll();
+      const [response] = await productsService.getAll();
       expect(response).to.be.a('array');
       expect(response[0]).to.have.property('id');
       expect(response[0]).to.have.property('name');
