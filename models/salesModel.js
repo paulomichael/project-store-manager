@@ -18,6 +18,9 @@ const create = async (productId, quantity) => {
   try {
     const query1 = 'INSERT INTO sales (date) VALUES (NOW())';
     const query2 = 'INSERT INTO sales_products ( sale_id, product_id, quantity) VALUES (?, ? ,?)';
+    console.log('=====> salesModel.create():');
+    console.log('=====> salesModel.product_id:', productId);
+    console.log('=====> salesModel.quantity:', quantity);
     const [sale] = await connection.execute(query1);
     const saleId = sale.insertId;
     await connection.execute(query2, [saleId, productId, quantity]);

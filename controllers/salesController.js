@@ -7,6 +7,7 @@ const getAll = async (_req, res) => {
 
 const create = async (req, res) => {
   const [{ productId, quantity }] = req.body;
+ //  const { productId, quantity } = req.body;
   const sale = await salesService.create(productId, quantity);
   const saleObject = {
     id: sale.saleId,
