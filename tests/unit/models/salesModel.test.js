@@ -69,12 +69,12 @@ describe('Através todas as compras devem ser retornadas', () => {
         expect(response[0]).to.have.property('quantity');
       })
 
-      it('Cria', async() => {
-        const response = await salesModel.create(1,1);
-        expect(response).to.have.property('productId');
-        expect(response).to.have.property('saleId');
-        expect(response).to.have.property('quantity');
-      })
+//      it('Cria', async() => {
+//        const response = await salesModel.create(1,1);
+//        expect(response).to.have.property('productId');
+//        expect(response).to.have.property('saleId');
+//        expect(response).to.have.property('quantity');
+//      })
 
 
     })

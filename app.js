@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const productsController = require('./controllers/productsController');
 const salesController = require('./controllers/salesController');
 const checkProductName = require('./middlewares/checkProductName');
-const checkProductBody = require('./middlewares/checkProductBody');
+// const checkProductBody = require('./middlewares/checkProductBody');
 // const checkProductId = require('./middlewares/checkProductId');
 const checkProductQuantity = require('./middlewares/checkProductQuantity');
 
