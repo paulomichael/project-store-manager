@@ -27,14 +27,13 @@ const create = async (name) => {
   }
 };
 
-const update = async (id, name, quantity) => {
+const update = async (id, name) => {
   try {
-    const query = 'UPDATE products SET name = ?, quantity = ?  WHERE id = ?';
-    const [rows] = await connection.execute(query, [name, quantity, id]);
+    const query = 'UPDATE products SET name = ? WHERE id = ?';
+    const [rows] = await connection.execute(query, [name, id]);
     const result = {
       id: rows.insertId,
       name,
-      quantity,
       };
     return result;
   } catch (e) {
