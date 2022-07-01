@@ -34,30 +34,30 @@ const getProductById = async (productId) => {
   return product;
 };
 
-const create = async (productId, quantity) => {
-  try {
-    const query1 = 'INSERT INTO sales (date) VALUES (NOW())';
-    // const query2 = 'INSERT INTO sales_products ( sale_id, product_id, quantity) VALUES (?, ? ,?)';
-    const query2 = 'INSERT INTO sales_products ( sale_id, product_id, quantity) VALUES (?, ? ,?)';
-
-//    console.log('----=====> salesModel.create():');
-//    console.log('----=====> salesModel.productId:', productId);
-//    console.log('----=====> salesModel.quantity:', quantity);
-
-    const [sale] = await connection.execute(query1);
-//    console.log('----=====> salesModel.sale:', sale);
-    const saleId = sale.insertId;
-//    console.log('----=====> salesModel.saleId:', saleId);
-    await connection.execute(query2, [saleId, productId, quantity]);
-    return { saleId, productId, quantity };
-  } catch (e) {
-  console.error(e);
-  }
-};
+// const create = async (productId, quantity) => {
+//   try {
+//     const query1 = 'INSERT INTO sales (date) VALUES (NOW())';
+//     // const query2 = 'INSERT INTO sales_products ( sale_id, product_id, quantity) VALUES (?, ? ,?)';
+//     const query2 = 'INSERT INTO sales_products ( sale_id, product_id, quantity) VALUES (?, ? ,?)';
+// 
+// //    console.log('----=====> salesModel.create():');
+// //    console.log('----=====> salesModel.productId:', productId);
+// //    console.log('----=====> salesModel.quantity:', quantity);
+// 
+//     const [sale] = await connection.execute(query1);
+// //    console.log('----=====> salesModel.sale:', sale);
+//     const saleId = sale.insertId;
+// //    console.log('----=====> salesModel.saleId:', saleId);
+//     await connection.execute(query2, [saleId, productId, quantity]);
+//     return { saleId, productId, quantity };
+//   } catch (e) {
+//   console.error(e);
+//   }
+// };
 
 module.exports = {
   getAll,
   getById,
-  create,
+//  create,
   getProductById,
 };

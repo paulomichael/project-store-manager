@@ -1,6 +1,6 @@
 const checkProductQuantity = async (req, res, next) => {
   console.log('====> checkProductQuantity req.body: ', req.body);
-  const [{ quantity }] = req.body;
+  const { quantity } = req.body;
   console.log('====> checkProductQuantity.quantity:', quantity);
   console.log('-------------------> CHECK!');
   if (!quantity || quantity === undefined) {

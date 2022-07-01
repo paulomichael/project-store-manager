@@ -10,8 +10,6 @@ const update = async (id, name, quantity) => productsModel.update(id, name, quan
 
 const remove = async (id) => {
   const productExists = await productsModel.getById(id);
-  console.log('=======> productsService.remove(): ');
-  console.log('=======> productsService.productExists: ', productExists);
   if (!productExists || productExists === undefined) {
     return { error: 'Product not found' };
   }
