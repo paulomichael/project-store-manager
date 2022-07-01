@@ -20,6 +20,7 @@ app.get('/products/:id', productsController.getById);
 app.post('/products/', checkProductName, productsController.create);
 
 app.get('/sales', salesController.getAll);
+app.get('/sales/:id', salesController.getById);
 // app.post('/sales', checkProductId, checkProductQuantity, salesController.create);
 app.post('/sales', checkProductBody, salesController.create);
 

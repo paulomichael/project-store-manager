@@ -14,6 +14,19 @@ const getAll = async () => {
   return sales;
 };
 
+const getById = async (id) => {
+  const query = `SELECT
+    s.date,
+    sp.product_id as productId,
+    sp.quantity
+  FROM sales s
+  JOIN sales_products sp
+    on s.id = sp.sale_id
+  WHERE s.id = ?;`;
+  const [sale] = await connection.execute(query, [Number(id)]);
+  return sale;
+};
+
 const getProductById = async (productId) => {
   const query = 'SELECT * FROM sales_products WHERE product_id = ?';
   const [rows] = await connection.execute(query, [productId]);
@@ -44,6 +57,7 @@ const create = async (productId, quantity) => {
 
 module.exports = {
   getAll,
+  getById,
   create,
   getProductById,
 };
