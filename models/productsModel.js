@@ -42,9 +42,25 @@ const update = async (id, name, quantity) => {
   }
 };
 
+const remove = async (id) => {
+  try {
+    const productId = await getById(id);
+    if (!productId || productId === undefined) {
+      return ({ message: 'Product not found' });
+    }
+    const query = 'DELETE FROM products WHERE id = ?';
+    const product = await connection.execute(query, [id]);
+//    console.log('product:', product);
+  return product;
+  } catch (e) {
+    console.error(e);
+  }
+};
+
 module.exports = {
   getAll,
   getById,
   create,
   update,
+  remove,
 };
