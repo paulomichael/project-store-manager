@@ -5,7 +5,7 @@ const salesController = require('./controllers/salesController');
 const checkProductName = require('./middlewares/checkProductName');
 const checkProductBody = require('./middlewares/checkProductBody');
 // const checkProductId = require('./middlewares/checkProductId');
-// const checkProductQuantity = require('./middlewares/checkProductQuantity');
+const checkProductQuantity = require('./middlewares/checkProductQuantity');
 
 const app = express();
 app.use(bodyParser.json());
@@ -18,6 +18,7 @@ app.get('/', (_request, response) => {
 app.get('/products', productsController.getAll);
 app.get('/products/:id', productsController.getById);
 app.post('/products/', checkProductName, productsController.create);
+app.put('/products/:id', checkProductName, checkProductQuantity, productsController.update);
 
 app.get('/sales', salesController.getAll);
 app.get('/sales/:id', salesController.getById);

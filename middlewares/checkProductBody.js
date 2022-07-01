@@ -23,4 +23,3 @@ const checkProductBody = async (req, res, next) => {
   next();
 };
 module.exports = checkProductBody;
-
